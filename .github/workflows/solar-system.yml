@@ -1,3 +1,4 @@
+
 name: Solar System Workflow
 
 on: 
@@ -31,3 +32,10 @@ jobs:
           with:
             name: Mocha-Test-Result
             path: test-results.xml
+
+    integration_testing:
+      needs: unit-testing
+      uses: ./.github/workflows/reusable-workflow.yaml
+      with:
+        ingress_rule: ${{ needs.dev-deploy.outputs.APP_INGRESS_URL }}
+
