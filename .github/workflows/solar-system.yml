@@ -37,5 +37,6 @@ jobs:
       needs: unit-testing
       uses: ./.github/workflows/reusable-workflow.yaml
       with:
-        ingress_rule: ${{ needs.dev-deploy.outputs.APP_INGRESS_URL }}
+        ingress-url: ${{ needs.dev-deploy.outputs.APP_INGRESS_URL }}
+
 
